@@ -35,7 +35,6 @@ export function day3_part1(rawFileData: string) {
         }
     }
 
-
     let multiClaimCount = 0;
 
     for (let i = 0; i < fabric.length; i++) {
