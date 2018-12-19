@@ -1,9 +1,9 @@
 import {expect} from 'chai';
 import * as fs from 'fs';
-import {day2_part1} from './day2_1';
-import {day2_part2} from './day2_2';
+import {day2_part1} from './day_02_1';
+import {day2_part2} from './day_02_2';
 
-const rawFileData = fs.readFileSync('./res/day2.txt', 'utf8');
+const rawFileData = fs.readFileSync('./res/day_02.txt', 'utf8');
 
 describe('day 2, part 1', () => {
     it('should return 6944', () => {
