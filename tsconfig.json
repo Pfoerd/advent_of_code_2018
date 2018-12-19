@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "es2015",
+    "module": "commonjs",
+    "outDir": "build",
+    "sourceMap": true
+  }
+}

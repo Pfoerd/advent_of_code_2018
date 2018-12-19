@@ -1,0 +1,20 @@
+{
+  "name": "de.eso.fesc7420.aoc",
+  "version": "1.0.0",
+  "description": "advent of code 2018",
+  "author": "Ferdinand Schneider <ferdinand.schneider@esolutions.de>",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.15",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.5.3"
+  }
+}
