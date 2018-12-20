@@ -16,3 +16,12 @@ You are cordially invited to send me suggestions for improvements or comments as
 
 # Run tests
 `npm test`
+
+# Solution remarks etc.
+## Graphical representation of solution on day 6, part 1
+I found this very nice so i wanted to share it with you :) :
+
+![day 6, part 1 graphical representation](./day06_1_plotted.png)
+
+It is an ascii representation of the grid. The different shaded areas represent all coordinates with the 
+shortest distance to a location within it.
