@@ -1,5 +1,7 @@
+import * as os from 'os';
+
 export function day6_part2(rawFileData: string) {
-    const rawData: string[] = rawFileData.split('\r\n');
+    const rawData: string[] = rawFileData.split(os.EOL);
 
     // parse raw data
     const coordinates: [number, number][] = [];

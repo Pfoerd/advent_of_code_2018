@@ -1,5 +1,7 @@
+import * as os from 'os';
+
 export function day2_part2(rawFileData: string) {
-    const ids: string[] = rawFileData.split('\r\n');
+    const ids: string[] = rawFileData.split(os.EOL);
 
     for (let idIndex = 0; idIndex < ids.length; idIndex++) {
         for (let idToCompareIndex = idIndex + 1; idToCompareIndex < ids.length; idToCompareIndex++) {

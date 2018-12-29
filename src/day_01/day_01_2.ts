@@ -1,5 +1,7 @@
+import * as os from 'os';
+
 export function day1_part2(rawFileData: string) {
-    const frequencies: string[] = rawFileData.split('\r\n');
+    const frequencies: string[] = rawFileData.split(os.EOL);
 
     let resultingFrequency = 0;
     const reachedFrequencies = new Set<number>();

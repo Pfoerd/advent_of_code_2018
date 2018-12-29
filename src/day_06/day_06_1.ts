@@ -1,5 +1,7 @@
+import * as os from 'os';
+
 export function day6_part1(rawFileData: string) {
-    const rawData: string[] = rawFileData.split('\r\n');
+    const rawData: string[] = rawFileData.split(os.EOL);
 
     // Why not working? Error:(4, 11) TS2322: Type 'number[][]' is not assignable to type '[number, number][]'.
     //   Type 'number[]' is not assignable to type '[number, number]'.

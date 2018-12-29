@@ -1,5 +1,7 @@
+import * as os from 'os';
+
 export function day2_part1(rawFileData: string) {
-    const ids: string[] = rawFileData.split('\r\n');
+    const ids: string[] = rawFileData.split(os.EOL);
 
     let doubles = 0;
     let triples = 0;

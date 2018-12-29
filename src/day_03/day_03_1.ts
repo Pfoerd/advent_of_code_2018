@@ -1,5 +1,7 @@
+import * as os from 'os';
+
 export function day3_part1(rawFileData: string) {
-    const rawData: string[] = rawFileData.split('\r\n');
+    const rawData: string[] = rawFileData.split(os.EOL);
 
     function Claim(id: number, x: number, y: number, width: number, height: number) {
         this.id = id;
