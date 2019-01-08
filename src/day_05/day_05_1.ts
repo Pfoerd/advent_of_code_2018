@@ -22,7 +22,7 @@ export function day5_part1(rawFileData: string) {
         i = tryReactPolymerAt(i);
     }
 
-    console.log(`number of units remaining: ${polymer.length}`/*, ${polymer.reduce((a, b) => a + b, '')}`*/);
+    console.log(`number of units remaining: ${polymer.length}`);
 
     return polymer.length;
 }
