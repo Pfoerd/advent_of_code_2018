@@ -22,36 +22,28 @@ export function day7_part1(rawFileData: string) {
     // find first steps
     const firstSteps: string[] = [...successors.keys()].filter(successor => !predecessors.has(successor));
 
-    let finished = '';
+    let finishedSteps = '';
 
     // walk the steps beginning with first steps
-    const nextAvailables: string[] = firstSteps.sort();
+    const nextAvailableSteps: string[] = firstSteps.sort();
 
-    while (nextAvailables.length) {
-        const nextAvailable = nextAvailables[0];
-        finished += nextAvailable;
+    while (nextAvailableSteps.length) {
+        const nextAvailableStep = nextAvailableSteps[0];
+        finishedSteps += nextAvailableStep;
 
-        nextAvailables.splice(0, 1);
+        nextAvailableSteps.splice(0, 1);
 
-        if (!successors.has(nextAvailable)) {
-            break;
-        }
-        const successorsOfNextAvailable = successors.get(nextAvailable);
+        const successorsOfNextAvailable: string[] = successors.get(nextAvailableStep) || [];
 
-        for (const successorOfNextAvailable of successorsOfNextAvailable) {
-            let prerequisitesCompleted = true;
-            for (const predecessor of predecessors.get(successorOfNextAvailable)) {
-                if (!finished.includes(predecessor)) {
-                    prerequisitesCompleted = false;
-                    break;
-                }
-            }
+        successorsOfNextAvailable.forEach(successorOfNextAvailable => {
+            const predecessorsOfSuccessor: string[] = predecessors.get(successorOfNextAvailable);
+            const prerequisitesCompleted = predecessorsOfSuccessor.every(predecessor => finishedSteps.includes(predecessor));
             if (prerequisitesCompleted) {
-                nextAvailables.push(successorOfNextAvailable);
+                nextAvailableSteps.push(successorOfNextAvailable);
             }
-        }
-        nextAvailables.sort();
+        });
+        nextAvailableSteps.sort();
     }
 
-    return finished;
+    return finishedSteps;
 }

@@ -3,12 +3,6 @@ import * as os from 'os';
 export function day6_part1(rawFileData: string) {
     const rawData: string[] = rawFileData.split(os.EOL);
 
-    // Why not working? Error:(4, 11) TS2322: Type 'number[][]' is not assignable to type '[number, number][]'.
-    //   Type 'number[]' is not assignable to type '[number, number]'.
-    //     Property '0' is missing in type 'number[]'.
-    // const coordinates: [number, number][] =
-    //  rawData.map(v => v.split(', ')).map(strings => [parseInt(strings[0], 10), parseInt(strings[1], 10)]);
-
     // parse raw data
     const coordinates: [number, number][] = [];
     for (const rawDate of rawData) {
