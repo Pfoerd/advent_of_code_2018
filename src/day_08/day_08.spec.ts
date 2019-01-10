@@ -13,8 +13,8 @@ describe('day 8, part 1', () => {
 });
 
 describe('day 8, part 2', () => {
-    it('should return 66', () => {
+    it('should return 30548', () => {
         const result = day8_part2(rawFileData);
-        expect(result).to.equal(66);
+        expect(result).to.equal(30548);
     });
 });

@@ -17,7 +17,7 @@ export function day8_part2(rawFileData: string) {
         if (childNodeCount === 0) {
             return metaDataEntries.reduce((sum, index) => sum + index);
         } else {
-            return metaDataEntries.reduce((sum, index) => sum + childNodeValues[index - 1] || 0);
+            return metaDataEntries.reduce((sum, index) => sum + (childNodeValues[index - 1] || 0), 0);
         }
     }
 
