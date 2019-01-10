@@ -1,14 +1,16 @@
 import * as os from 'os';
 
 export function day4_part2(rawFileData: string) {
-    const rawData: string[] = rawFileData.split(os.EOL);
-
-    function LogEntry(dateTime: Date, isFallsAsleep: boolean = false, isWakesUp: boolean = false, beginShiftId?: string) {
-        this.dateTime = dateTime;
-        this.isFallsAsleep = isFallsAsleep;
-        this.isWakesUp = isWakesUp;
-        this.beginShiftId = beginShiftId;
+    class LogEntry {
+        constructor(
+            public dateTime: Date,
+            public isFallsAsleep: boolean = false,
+            public isWakesUp: boolean = false,
+            public beginShiftId?: string) {
+        }
     }
+
+    const rawData: string[] = rawFileData.split(os.EOL);
 
     let logEntries = [];
 

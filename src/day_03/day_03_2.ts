@@ -1,15 +1,17 @@
 import * as os from 'os';
 
 export function day3_part2(rawFileData: string) {
-    const rawData: string[] = rawFileData.split(os.EOL);
-
-    function Claim(id: string, x: number, y: number, width: number, height: number) {
-        this.id = id;
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+    class Claim {
+        constructor(
+            public id: string,
+            public x: number,
+            public y: number,
+            public width: number,
+            public height: number) {
+        }
     }
+
+    const rawData: string[] = rawFileData.split(os.EOL);
 
     const claims = [];
 
