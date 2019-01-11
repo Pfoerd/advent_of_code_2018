@@ -16,5 +16,5 @@ describe('day 9, part 2', () => {
     it('should return 3553108197', () => {
         const result = day9_part2(rawFileData);
         expect(result).to.equal(3553108197);
-    });
+    }).timeout(5000);
 });
