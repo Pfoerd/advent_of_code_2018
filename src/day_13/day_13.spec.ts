@@ -12,13 +12,9 @@ describe('day 13, part 1', () => {
     });
 });
 
-function jo(car1, car2): number {
-    return (car1[0] - car2[0]) || (car1[1] - car2[1]);
-}
-
 describe('day 13, part 2', () => {
-    it('should return 1234', () => {
+    it('should return "133,146"', () => {
         const result = day13_part2(rawFileData);
-        expect(result).to.equal(1234);
+        expect(result).to.equal('133,146');
     });
 });

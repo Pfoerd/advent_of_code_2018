@@ -35,8 +35,8 @@ export function day13_part1(rawFileData: string) {
 
     // get the cars' positions
     for (let y = 0; y < tracks.length; y++) {
-        for (let x = 0; x < tracks[0].length; x++) {
-            if (tracks[y][x].search(/^([<>^v])$/) !== -1) {
+        for (let x = 0; x < Math.max(...tracks.map(v => v.length)); x++) {
+            if (tracks[y][x] && tracks[y][x].search(/^([<>^v])$/) !== -1) {
                 const direction = Direction.get(tracks[y][x]);
                 cars.push([y, x, direction, Turn.LEFT]);
                 tracks[y][x].replace(/^([<>])$/, '-');
