@@ -2,7 +2,12 @@ import * as os from 'os';
 
 export function day13_part2(rawFileData: string) {
     const tracks: string[][] = rawFileData.split(os.EOL).map(row => [...row]);
-    const cars: [number, number, Direction, Turn][] = [];
+    const cars: Car[] = [];
+
+    class Car {
+        constructor(public y: number, public x: number, public direction: Direction, public turn: Turn) {
+        }
+    }
 
     enum Turn {
         LEFT,
@@ -38,7 +43,7 @@ export function day13_part2(rawFileData: string) {
         for (let x = 0; x < Math.max(...tracks.map(v => v.length)); x++) {
             if (tracks[y][x] && tracks[y][x].search(/^([<>^v])$/) !== -1) {
                 const direction = Direction.get(tracks[y][x]);
-                cars.push([y, x, direction, Turn.LEFT]);
+                cars.push(new Car(y, x, direction, Turn.LEFT));
                 tracks[y][x].replace(/^([<>])$/, '-');
                 tracks[y][x].replace(/^([v^])$/, '|');
             }
@@ -52,40 +57,40 @@ export function day13_part2(rawFileData: string) {
         for (let i = 0; i < cars.length; i++) {
             const car = cars[i];
 
-            car[0] += car[2].yDirection;
-            car[1] += car[2].xDirection;
-            const trackElement = tracks[car[0]][car[1]];
+            car.y += car.direction.yDirection;
+            car.x += car.direction.xDirection;
+            const trackElement = tracks[car.y][car.x];
             if (trackElement === '\\' || trackElement === '/') {
-                switch (car[2]) {
+                switch (car.direction) {
                     case Direction.UP:
-                        car[2] = trackElement === '/' ? Direction.RIGHT : Direction.LEFT;
+                        car.direction = trackElement === '/' ? Direction.RIGHT : Direction.LEFT;
                         break;
                     case Direction.RIGHT:
-                        car[2] = trackElement === '/' ? Direction.UP : Direction.DOWN;
+                        car.direction = trackElement === '/' ? Direction.UP : Direction.DOWN;
                         break;
                     case Direction.DOWN:
-                        car[2] = trackElement === '/' ? Direction.LEFT : Direction.RIGHT;
+                        car.direction = trackElement === '/' ? Direction.LEFT : Direction.RIGHT;
                         break;
                     case Direction.LEFT:
-                        car[2] = trackElement === '/' ? Direction.DOWN : Direction.UP;
+                        car.direction = trackElement === '/' ? Direction.DOWN : Direction.UP;
                         break;
                 }
             } else if (trackElement === '+') {
-                switch (car[3]) {
+                switch (car.turn) {
                     case Turn.LEFT:
-                        car[2] = car[2].transformLeft();
-                        car[3] = Turn.STRAIGHT;
+                        car.direction = car.direction.transformLeft();
+                        car.turn = Turn.STRAIGHT;
                         break;
                     case Turn.RIGHT:
-                        car[2] = car[2].transformRight();
-                        car[3] = Turn.LEFT;
+                        car.direction = car.direction.transformRight();
+                        car.turn = Turn.LEFT;
                         break;
                     default:
-                        car[3] = Turn.RIGHT;
+                        car.turn = Turn.RIGHT;
                         break;
                 }
             }
-            const crashedCarIndex: number = cars.findIndex(car2 => car2 !== car && car2[0] === car[0] && car2[1] === car[1]);
+            const crashedCarIndex: number = cars.findIndex(car2 => car2 !== car && car2.x === car.x && car2.y === car.y);
             if (crashedCarIndex !== -1) {
                 cars.splice(crashedCarIndex, 1);
                 cars.splice(cars.indexOf(car), 1);
@@ -94,5 +99,5 @@ export function day13_part2(rawFileData: string) {
         }
     }
 
-    return `${cars[0][1]},${cars[0][0]}`;
+    return `${cars[0].x},${cars[0].y}`;
 }
