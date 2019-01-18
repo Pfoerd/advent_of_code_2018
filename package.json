@@ -5,7 +5,7 @@
   "author": "Ferdinand Schneider <ferdinand.schneider@esolutions.de>",
   "scripts": {
     "build": "tsc",
-    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+    "test": "mocha -r ts-node/register src/**/*_14.spec.ts"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
