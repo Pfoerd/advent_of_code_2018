@@ -18,5 +18,5 @@ export function day14_part1(rawFileData: string) {
         elve2Position = (elve2Position + (1 + recipes[elve2Position])) % recipes.length;
     }
 
-    return parseInt(recipes.filter((v, i) => i > recipesCount - 1).join(''), 10);
+    return parseInt(recipes.slice(recipesCount).join(''), 10);
 }
