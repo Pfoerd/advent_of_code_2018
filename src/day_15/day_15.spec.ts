@@ -82,8 +82,8 @@ describe('day 15, part 1', () => {
 });
 
 describe('day 15, part 2', () => {
-    it('should return 1234', () => {
+    it('should return 47296', () => {
         const result = day15_part2(rawFileData);
-        expect(result).to.equal(1234);
-    });
+        expect(result).to.equal(47296);
+    }).timeout(720000);
 });
