@@ -13,9 +13,9 @@ describe('day 16, part 1', () => {
 });
 
 describe('day 16, part 2', () => {
-    it('should return 1234', () => {
+    it('should return 600', () => {
         const result = day16_part2(rawFileData);
-        expect(result).to.equal(1234);
+        expect(result).to.equal(600);
     });
 });
 
